@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import Navbar from "./Components/Navbar";
-import Sidebar from "./Components/Sidebar";
-import MainBox from "./Components/MainBox"; // or MainBox if you rename the file
-import Style from "./CSS/App.module.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Watch from "./Pages/Watch";
 
 const App = () => {
-  const [toggle, setToggle] = useState(false);
-
   return (
-    <>
-      <Navbar toggle={toggle} setToggle={setToggle} />
-      <div className={Style.mainLayout}>
-        <Sidebar toggle={toggle} />
-        <MainBox />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/watch/:id" element={<Watch />} />
+    </Routes>
   );
 };
 
